@@ -1,3 +1,9 @@
+:root{
+    --font-color:#343434;
+    --font-accent: #ccc;
+}
+
+
 *{
     box-sizing: border-box;
 }
@@ -5,6 +11,14 @@
 body, html {
     padding: 0;
     margin: 0;
+    background-color: #f4f7f6;
+    overflow-x: hidden;
+}
+
+
+.burger-menu{
+    width: 40px;
+    cursor: pointer;
 }
 
 img {
@@ -18,6 +32,12 @@ img {
     grid-template-columns: 200px 1fr;
 }
 
+header {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+}
+
 header h1 {
     background-image: url(images/logo/logo.png);
     background-repeat: no-repeat;
@@ -25,6 +45,100 @@ header h1 {
     height: auto;
     text-indent: -9999px;
 }
+
+/*NAVIGATION STARTS*/
+
+nav{
+    display: flex;
+}
+nav a{
+    font-size: 1.4rem;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--font-color);
+    margin: 1.4rem;
+    transform: color 0.2s 0.1s;
+
+}
+
+nav a:hover {
+    color: var(--font-accent);
+}
+
+
+nav .active{
+    font-weight: bold;
+}
+
+nav {
+    position: absolute;
+    right: -100vw;
+    top: 100px;
+    z-index: 10;
+    background: #f4f7f6;
+    width: 100vw;
+    height: calc(100vh - 100px);
+    padding: 4rem;
+    transition: transform 1s;
+}
+
+nav.open{
+    transform: translateX(-100vw);
+}
+@media only screen and (min-width: 1000px) {
+    .burger-menu{
+        display: none;
+    }
+    nav {
+        position: static;
+        /*width: auto;*/
+        height: auto;
+        padding: 1rem;
+    }
+
+}
+
+/*NAVIGATION ENDS*/
+
+/*BURGER MENU STARTS*/
+
+.burger-menu rect {
+    transition: all 0.2s;
+    transform-origin: 50% 50%;
+}
+
+/*svg rect:first-child,
+rect:last-child{
+    opacity: 0;
+}*/
+.open rect:nth-child(2)
+.open rect:nth-child(3){
+    transition-delay: .1s;
+}
+
+rect:nth-child(2)
+rect:nth-child(3){
+    transition-delay: 0s;
+}
+
+.open rect:first-child {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.open rect:nth-child(2){
+    transform: rotate(45deg);
+}
+
+.open rect:nth-child(3){
+    transform: rotate(-45deg);
+}
+
+.open rect:last-child {
+    transform: translateY(-30px);
+    opacity: 0;
+}
+/*BURGER MENU ENDS*/
 
 main {
     grid-column: 1/-1;
@@ -35,7 +149,7 @@ main {
 .product {
     background-color: bisque;
     display: grid;
-    border: 1px solid #ccc;
+    border: 1px solid var(--font-accent);
 }
 
 .product > * {
@@ -43,6 +157,8 @@ main {
     grid-column: 1/-1;
 }
 
+
+/*BREAK POINTS*/
 @media only screen and (min-width: 1000px) {
     header{
         grid-column: 1/-1;
