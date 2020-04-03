@@ -1,3 +1,14 @@
+:root{
+    /*--font-color:#343434;
+    --font-accent: #ccc;*/
+
+}
+
+/*FONTS*/
+@font-face {
+    font-family: 'Bahnschrift Regular';
+    src: local('Bahnschrift Regular'), url('fonts/BAHNSCHRIFT.woff') format('woff');
+}
 *{
     box-sizing: border-box;
 }
@@ -5,6 +16,14 @@
 body, html {
     padding: 0;
     margin: 0;
+    background-color: #f4f7f6;
+    overflow-x: hidden;
+}
+
+
+.burger-menu{
+    width: 40px;
+    cursor: pointer;
 }
 
 img {
@@ -18,20 +37,163 @@ img {
     grid-template-columns: 200px 1fr;
 }
 
-header h1 {
-    background-image: url(images/logo/logo.png);
-    background-repeat: no-repeat;
-    width: 180px;
-    height: auto;
-    text-indent: -9999px;
+header {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
 }
+
+header h1 {
+    overflow: hidden;
+}
+
+/*NAVIGATION STARTS*/
+
+nav{
+    display: block;
+    align-items: baseline;
+    align-items: center;
+}
+nav a{
+    font-size: 1.4rem;
+     text-transform: uppercase;
+    display: flex;
+    text-decoration: none;
+    color: #343434;
+    margin: 1.4rem;
+    transform: color 0.2s 0.1s;
+     font-family: 'Bahnschrift Regular';
+    font-weight: 100;
+    justify-content: center;
+}
+
+nav a:hover {
+    color: #ccc;
+}
+
+
+nav .active{
+    font-family: 'Bahnschrift Regular';
+    font-weight: 600;
+}
+
+nav {
+    position: absolute;
+    right: -100vw;
+    top: 100px;
+    z-index: 10;
+    background: #f4f7f6;
+    width: 100vw;
+    height: calc(100vh - 100px);
+    padding: 4rem;
+    transition: transform 1s;
+}
+
+nav.open{
+    transform: translateX(-100vw);
+}
+@media only screen and (min-width: 700px) {
+    .burger-menu{
+        display: none;
+    }
+    nav {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 1rem;
+        justify-content: flex-end;
+    }
+
+
+}
+
+/*NAVIGATION ENDS*/
+
+/*BURGER MENU STARTS*/
+
+.burger-menu rect {
+    transition: all 0.2s;
+    transform-origin: 50% 50%;
+}
+
+/*svg rect:first-child,
+rect:last-child{
+    opacity: 0;
+}*/
+.open rect:nth-child(2)
+.open rect:nth-child(3){
+    transition-delay: .1s;
+}
+
+rect:nth-child(2)
+rect:nth-child(3){
+    transition-delay: 0s;
+}
+
+.open rect:first-child {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.open rect:nth-child(2){
+    transform: rotate(45deg);
+}
+
+.open rect:nth-child(3){
+    transform: rotate(-45deg);
+}
+
+.open rect:last-child {
+    transform: translateY(-30px);
+    opacity: 0;
+}
+
+
+/*links display*/
+
+
+/*BURGER MENU ENDS*/
+
+
+/*CATEGORIES*/
+.categories {
+    margin: 1rem;
+
+}
+
+.intro-brands {
+    font-family: 'Bahnschrift Regular';
+        text-transform: uppercase;
+        font-weight: 600;
+
+}
+
+ul{
+        padding-inline-start:0;
+
+    }
+
+li {
+    list-style-type:none;
+    font-family: 'Bahnschrift Regular';
+    font-weight: 100;
+    margin-top: 0.3rem;
+}
+
+
 
 main {
     grid-column: 1/-1;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
+
 }
+
+.categories{
+    display: inline-block;
+}
+
 .product {
     background-color: bisque;
     display: grid;
@@ -43,8 +205,54 @@ main {
     grid-column: 1/-1;
 }
 
-@media only screen and (min-width: 1000px) {
-    header{
-        grid-column: 1/-1;
+
+/*BREAK POINTS*/
+@media only screen and (min-width: 700px) {
+    header {
+        grid-column: auto;
     }
+    .brands-list {
+        display: flex;
+        margin: 1rem;
+    }
+
+    header h1 {
+        display: auto;
+    background-image: url(images/logo/logo.svg);
+    background-repeat: no-repeat;
+    background-size: 160px 80px;
+    width: 160px;
+    height: 80px;
+    text-indent: -9999px;
+        margin: 1.4rem;
+}
+
+    nav{
+        display: flex;
+        vertical-align: middle;
+    }
+    .intro-brands{
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    li {
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .brands-list{
+        display: flex;
+        margin-left: 0;
+
+    }
+
+    li.first-cat{
+        margin-left: 0;
+    }
+    ul{
+        padding-inline-start:0;
+    }
+
+    .categories span {
+   border-right: 0.1rem solid #000;
+}
 }
