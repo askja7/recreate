@@ -10,7 +10,7 @@
 <body>
    <div id="wrapper">
        <header>
-       <a href="/"><h1>logo</h1></a>
+       <a href="/"><h1></h1></a>
           <svg class="burger-menu" viewBox="0 0 100 100">
            <rect x="10" y="15" width="80" height="10"></rect>
            <rect x="10" y="45" width="80" height="10"></rect>
@@ -23,19 +23,31 @@
        <a class="active" href="#">Shop</a>
        <a href="#">Contact us</a>
        </nav>
-
+       </div>
+<section class="categories">
+             <p class="intro-brands">Brands we carry</p>
+             <ul class="brands-list">
+              <li class="first-cat">Fjällräven</li>
+              <span></span>
+              <li>Osprey</li>
+              <span></span>
+              <li>Black Diamond</li>
+              </ul>
+          </section>
        <main>
+          <template>
            <article class="product">
                <img src="images/products/fjallraven-blue.png" alt="backpack">
                <section class="info">
-               <h3>Fjallraven</h3>
-               <h4>Kanken</h4>
-               <p>Price: 400DKK</p>
-               <p>Color: Blue/Orange/Pink/Yellow</p>
-               <p>In Stock: 5</p>
+               <h3 class="brand">Fjallraven</h3>
+               <h4 class="model">Kanken</h4>
+               <p class="price">Price: 400DKK</p>
+               <p class="color">Color: Blue/Orange/Pink/Yellow</p>
+               <p class="stock">In Stock: 5</p>
                </section>
            </article>
-           <article class="product">
+           </template>
+           <!--<article class="product">
                <img src="images/products/kanken-grey.png" alt="backpack">
                <section class="info">
                <h3>Fjallraven</h3>
@@ -84,9 +96,9 @@
                <p>Color: Blue/Orange/Pink/Yellow</p>
                <p>In Stock: 5</p>
                </section>
-           </article>
+           </article>-->
        </main>
-   </div>
+
     <script src="script.js"></script>
 </body>
 </html>
