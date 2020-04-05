@@ -13,6 +13,30 @@ function setUpBurgerNav(){
     })
 }
 
+fetch("http://lorastaneva.com/kea-projects/second-semester/cms/recreate/wp-json/wp/v2/backpack")
+  .then(res=>res.json())
+.then(loopThroughBackpack)
+
+function loopThroughBackpack(backpack){
+  backpack.forEach(backpack=>{
+    const template = document.querySelector("template").content;
+    const copy = template.cloneNode(true);
+       copy.querySelector(".img-backpack").src=backpack.image.guid;
+    copy.querySelector(".title").textContent=backpack.title.rendered;
+    copy.querySelector(".model").innerHTML=backpack.model;
+      copy.querySelector(".price").innerHTML=backpack.price;
+      copy.querySelector(".color").innerHTML=backpack.color;
+      copy.querySelector(".in_stock").innerHTML=backpack.in_stock;
+    document.querySelector("main").appendChild(copy)
+  })
+}
+
+
+
+
+
+
+
 
 /*
 
