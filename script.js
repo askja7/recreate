@@ -1,34 +1,34 @@
 window.addEventListener('load', setup);
 
-function setup(){
+function setup() {
     setUpBurgerNav()
 }
 
-function setUpBurgerNav(){
+function setUpBurgerNav() {
     const burger = document.querySelector('.burger-menu');
     const nav = document.querySelector('nav');
-    burger.addEventListener('click', e=> {
+    burger.addEventListener('click', e => {
         burger.classList.toggle('open');
         nav.classList.toggle('open');
     })
 }
 
-fetch("http://lorastaneva.com/kea-projects/second-semester/cms/recreate/wp-json/wp/v2/backpack")
-  .then(res=>res.json())
-.then(loopThroughBackpack)
+fetch("http://lorastaneva.com/kea-projects/second-semester/cms/recreate/wp-json/wp/v2/backpack?per_page=100")
+    .then(res => res.json())
+    .then(loopThroughBackpack)
 
-function loopThroughBackpack(backpack){
-  backpack.forEach(backpack=>{
-    const template = document.querySelector("template").content;
-    const copy = template.cloneNode(true);
-       copy.querySelector(".img-backpack").src=backpack.image.guid;
-    copy.querySelector(".title").textContent=backpack.title.rendered;
-    copy.querySelector(".model").innerHTML=backpack.model;
-      copy.querySelector(".price").innerHTML=backpack.price;
-      copy.querySelector(".color").innerHTML=backpack.color;
-      copy.querySelector(".in_stock").innerHTML=backpack.in_stock;
-    document.querySelector("main").appendChild(copy)
-  })
+function loopThroughBackpack(backpack) {
+    backpack.forEach(backpack => {
+        const template = document.querySelector("template").content;
+        const copy = template.cloneNode(true);
+        copy.querySelector(".img-backpack").src = backpack.image.guid;
+        copy.querySelector(".title").textContent = backpack.title.rendered;
+        copy.querySelector(".model").innerHTML = backpack.model;
+        copy.querySelector(".price").innerHTML = backpack.price;
+        copy.querySelector(".color").innerHTML = backpack.color;
+        copy.querySelector(".in_stock").innerHTML = backpack.in_stock;
+        document.querySelector("main").appendChild(copy)
+    })
 }
 
 
