@@ -224,6 +224,9 @@ main {
     margin-left: 1rem;
 }
 
+.intro-brands, .brands-list{
+    margin-left: 1.4rem;
+}
 
 /*BREAK POINTS*/
 @media only screen and (min-width: 700px) {
@@ -234,6 +237,10 @@ main {
     .brands-list {
         display: flex;
         margin: 1rem;
+    }
+
+    .intro-brands, .brands-list {
+        margin-left: 1.4rem;
     }
 
     header h1 {
@@ -264,7 +271,7 @@ main {
 
     .brands-list {
         display: flex;
-        margin-left: 0;
+        margin-left: 1.4rem;
 
     }
 
