@@ -213,6 +213,9 @@ main {
     box-shadow: 6px 6px 16px 0 rgba(217, 210, 200, 0.51);
 }
 
+.product:hover{
+    opacity: 0.6;
+}
 .product > * {
     width: 100%;
     grid-column: 1/-1;
