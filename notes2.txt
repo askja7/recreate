@@ -1,11 +1,22 @@
 ask Jonas
 -> wt plug in? video 5. main grid - detect color?
 
-1. logo not visible
-2. nav to the right top
-3. links nav burger block?
-4. categories don't show on desktop ver
-5. fetch data not working
+1. logo not visible DONE
+2. nav to the right top DONE
+3. links nav burger block? DONE
+4. categories don't show on desktop ver DONE
+5. fetch data not working - DONE
+
+6. fix categories to filter
+7. fix the layout/style of each cart
+8. try out adding diff colors/
+
+Jonas's feedback:
+1. categories (brands)-> add <a> tag for links in the future
+2. product detsils -> not all should be <p>, make some of the header (like brand and model) for screen readers as now everything is equally important but brand and model are more important than in stock
+3. general design -> avoid putting label:value, no need to put label like price
+4. images from WP -> you are using the original image. WP created 3 diff sizes of images and you should use them. Ask Lasse how to grab those images. Then the user won't have to download the 10MB images which will make the site faster.
+5. class product in STYLE.CSS -> box-shadow and boder, you have 2 lines, the 2nd overwrites the 1st one.
 
 ARVO FONT DOWNLOAD
 
@@ -18,3 +29,6 @@ acls
 
 metodology
 design fiction - simple future
+
+chia pudding
+
